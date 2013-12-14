@@ -1,0 +1,44 @@
+<image schemaversion="5.2" name="apricity"
+  displayname="Apricity OS" 
+  kiwirevision="5.06.7" 
+  id="0000000001">
+</image>
+
+<description type="iso">
+  <author>Alex Gajewski</author>
+  <contact>apagajewski@gmail.com</contact>
+  <specification>Apricity OS</specification>
+</description>
+
+<preferences>
+  <version>0.0.1</version>
+  <packagemanager>smart</packagemanager>
+  <type image="iso" boot="isoboot/suse-*" keytable="colemak" timezone="/usr/share/zoneinfo/America/Chicago" locale="en_US"  ...>
+  </type> 
+</preferences>
+
+<users group="wheel,storage,power,scanner,camera," id="2"> 
+  <user home="/home/liveuser" id="2" name="liveuser" pwd=""
+        pwdformat="plain" realname="Live User" shell="/bin/bash>
+</users>
+
+
+<repository type="yast2" alias="Tumbleweed" imageinclude="true"
+              <source path="http://download.opensuse.org/repositories/openSUSE:/Tumbleweed/standard/"/>
+
+
+<repository type="yast2" alias="openSUSE Current OSS" imageinclude="true"
+              <source path="http://download.opensuse.org/distribution/openSUSE-current/repo/oss/"/>
+
+<repository type="yast2" alias="openSUSE Current non-OSS" imageinclude="true"
+              <source path="http://download.opensuse.org/distribution/openSUSE-current/repo/oss/suse/"/>
+</repository>
+
+<repository type="yast2" alias="openSUSE Current OSS updates" imageinclude="true"
+              <source path="http://download.opensuse.org/update/openSUSE-current/"/>
+</repository>
+
+<repository type="yast2" alias="openSUSE Current non-OSS updates" imageinclude="true"
+              <source path="http://download.opensuse.org/update/openSUSE-non-oss-current/"/>
+</repository>
+
