@@ -2,43 +2,334 @@
   displayname="Apricity OS" 
   kiwirevision="5.06.7" 
   id="0000000001">
-</image>
 
-<description type="iso">
-  <author>Alex Gajewski</author>
-  <contact>apagajewski@gmail.com</contact>
-  <specification>Apricity OS</specification>
-</description>
+ <description type="iso">
+   <author>Alex Gajewski</author>
+   <contact>apagajewski@gmail.com</contact>
+   <specification>Apricity OS</specification>
+ </description>
 
-<preferences>
-  <version>0.0.1</version>
-  <packagemanager>smart</packagemanager>
-  <type image="iso" boot="isoboot/suse-*" keytable="colemak" timezone="/usr/share/zoneinfo/America/Chicago" locale="en_US"  ...>
-  </type> 
-</preferences>
+ <preferences>
+   <version>0.0.1</version>
+   <timezone>America/Chicago</timezone>
+   <hwclock>localtime</hwclock>
+   <locale>en_US</locale>
+ <keytable>colemak</keytable>
+   <packagemanager>smart</packagemanager>
+   <type image="iso" boot="isoboot/suse-tumbleweed" fsnocheck='true' bootloader='grub2' flags='clic' hybrid='true' kernelcmdline='quiet'>
+   </type> 
+ </preferences>
 
-<users group="wheel,storage,power,scanner,camera," id="2"> 
-  <user home="/home/liveuser" id="2" name="liveuser" pwd=""
-        pwdformat="plain" realname="Live User" shell="/bin/bash>
-</users>
+ <users group="wheel,storage,power,scanner,camera," id="2"> 
+   <user home="/home/liveuser" id="2" name="liveuser" pwd=""
+         pwdformat="plain" realname="Live User" shell="/bin/bash>
+ </users>
 
 
-<repository type="yast2" alias="Tumbleweed" imageinclude="true"
-              <source path="http://download.opensuse.org/repositories/openSUSE:/Tumbleweed/standard/"/>
+ <repository type="yast2" alias="Tumbleweed" imageinclude="true"
+               <source path="http://download.opensuse.org/repositories/openSUSE: /Tumbleweed/standard/"/>
+ 
 
+ <repository type="yast2" alias="openSUSE Current OSS" imageinclude="true"
+               <source path="http://download.opensuse.org/distribution/openSUSE-  current/repo/oss/"/>
 
-<repository type="yast2" alias="openSUSE Current OSS" imageinclude="true"
-              <source path="http://download.opensuse.org/distribution/openSUSE-current/repo/oss/"/>
-
-<repository type="yast2" alias="openSUSE Current non-OSS" imageinclude="true"
+ <repository type="yast2" alias="openSUSE Current non-OSS" imageinclude="true"
               <source path="http://download.opensuse.org/distribution/openSUSE-current/repo/oss/suse/"/>
-</repository>
+ </repository>
 
-<repository type="yast2" alias="openSUSE Current OSS updates" imageinclude="true"
+ <repository type="yast2" alias="openSUSE Current OSS updates" imageinclude="true"
               <source path="http://download.opensuse.org/update/openSUSE-current/"/>
-</repository>
+ </repository>
 
-<repository type="yast2" alias="openSUSE Current non-OSS updates" imageinclude="true"
+ <repository type="yast2" alias="openSUSE Current non-OSS updates" imageinclude="true"
               <source path="http://download.opensuse.org/update/openSUSE-non-oss-current/"/>
-</repository>
+ </repository>\
 
+ <repository type="rpm-md" alias="dvd" imageinclude="true"
+              <source path="http://www.opensuse-guide.org/repo/13.1/"/>
+ </repository>
+
+ <repository type="rpm-md" alias="packman" imageinclude="true"
+              <source path="http://packman.inode.at/suse/openSUSE_Tumbleweed/"/>
+ </repository>
+
+ <repository type="rpm-md" alias="Google-talk" imageinclude="true"
+              <source path="http://dl.google.com/linux/talkplugin/rpm/stable/x86_64/"/>
+ </repository>
+
+ <repository type="rpm-md" alias="touchegg" imageinclude="true"
+              <source path="http://download.opensuse.org/repositories/home:/cabelo:/touchegg/openSUSE_13.1/"/>
+ </repository>
+
+<repository type="rpm-md" alias="playonlinux" imageinclude="true"
+              <source path="http://download.opensuse.org/repositories/home:/ecsos/openSUSE_Tumbleweed/"/>
+ </repository>
+
+<repository type="rpm-md" alias="wireless-firmware" imageinclude="true"
+              <source path="http://download.opensuse.org/repositories/home:/NicoK:/drivers/openSUSE_Tumbleweed/"/>
+ </repository>
+
+<repository type="rpm-md" alias="petracw" imageinclude="true"
+              <source path="http://download.opensuse.org/repositories/home:/petracvv/openSUSE_Tumbleweed/"/>
+ </repository>
+
+<repository type="rpm-md" alias="pipelight" imageinclude="true"
+              <source path="http://download.opensuse.org/repositories/home:/rbos:/pipelight/openSUSE_Tumbleweed/home:rbos:pipelight.repo"/>
+ </repository>
+
+<packages type="iso" patternType="plusRecommended"
+<package name='kiwi-desc-isoboot-requires'/>
+    <package name='kiwi-desc-isoboot'/>
+    <package name='kiwi-tools'/>
+    <package name='kiwi'/>
+    <package name='git'/>
+    <package name='git-core'/>
+    <package name='netflix-desktop'/>
+    <package name='libattr1-32bit'/>
+    <package name='libattr1'/>
+    <package name='attr'/>
+    <package name='free-ttf-fonts'/>
+    <package name='fetchmsttfonts'/>
+    <package name='flash-player-gnome'/>
+    <package name='flash-player'/>
+    <package name='wine-mp3-debugsource'/>
+    <package name='wine-mp3-debuginfo'/>
+    <package name='wineasio-debugsource'/>
+    <package name='wine-mp3'/>
+    <package name='wineasio-debuginfo'/>
+    <package name='wineasio'/>
+    <package name='wine-devel-32bit'/>
+    <package name='wine-devel'/>
+    <package name='yast2-core'/>
+    <package name='yast2-theme-openSUSE-Oxygen'/>
+    <package name='yast2-security'/>
+    <package name='yast2-multipath'/>
+    <package name='yast2-tune'/>
+    <package name='yast2-mail'/>
+    <package name='yast2-ftp-server'/>
+    <package name='yast2-users'/>
+    <package name='yast2-product-creator'/>
+    <package name='yast2-bootloader'/>
+    <package name='yast2-mail-plugins'/>
+    <package name='yast2-http-server'/>
+    <package name='yast2-apparmor'/>
+    <package name='yast2-hardware-detection'/>
+    <package name='yast2-ldap'/>
+    <package name='yast2-squid'/>
+    <package name='yast2-sysconfig'/>
+    <package name='yast2-online-update-frontend'/>
+    <package name='yast2-runlevel'/>
+    <package name='yast2-installation'/>
+    <package name='autoyast2'/>
+    <package name='yast2-iscsi-client'/>
+    <package name='yast2-kerberos-client'/>
+    <package name='yast2-nis-client'/>
+    <package name='yast2-update'/>
+    <package name='yast2-vm'/>
+    <package name='yast2-add-on'/>
+    <package name='yast2-control-center'/>
+    <package name='yast2-slp'/>
+    <package name='yast2-ldap-client'/>
+    <package name='yast2-metapackage-handler'/>
+    <package name='yast2-inetd'/>
+    <package name='yast2-nfs-client'/>
+    <package name='autoyast2-installation'/>
+    <package name='yast2-ntp-client'/>
+    <package name='yast2-restore'/>
+    <package name='yast2-network'/>
+    <package name='yast2-online-update'/>
+    <package name='yast2-backup'/>
+    <package name='yast2-samba-server'/>
+    <package name='yast2-printer'/>
+    <package name='yast2-samba-client'/>
+    <package name='yast2-live-installer'/>
+    <package name='yast2-firewall'/>
+    <package name='yast2-sound'/>
+    <package name='imagewriter'/>
+    <package name='ralink-firmware'/>
+    <package name='hostapd'/>
+    <package name='wpa_supplicant-gui'/>
+    <package name='wpa_supplicant'/>
+    <package name='urfkill'/>
+    <package name='rfkill'/>
+    <package name='crda'/>
+    <package name='gnome-clocks-lang'/>
+    <package name='gnome-clocks'/>
+    <package name='transmission-gtk-lang'/>
+    <package name='transmission-common'/>
+    <package name='transmission'/>
+    <package name='transmission-gtk'/>
+    <package name='wine-32bit'/>
+    <package name='wine-gecko'/>
+    <package name='wine'/>
+    <package name='wireless-regdb'/>
+    <package name='wireless-tools'/>
+    <package name='b43-fwcutter'/>
+    <package name='b43legacy-firmware'/>
+    <package name='b43-firmware'/>
+    <package name='google-talkplugin'/>
+    <package name='iw'/>
+    <package name='glib-networking'/>
+    <package name='NetworkManager-gnome'/>
+    <package name='gnome-common'/>
+    <package name='gtk2-engine-murrine'/>
+    <package name='nautilus-gnome-mplayer-properties-page'/>
+    <package name='nautilus-actions-lang'/>
+    <package name='nautilus-actions'/>
+    <package name='nautilus-image-converter'/>
+    <package name='nautilus-image-converter-lang'/>
+    <package name='nautilus-sendto-lang'/>
+    <package name='nautilus'/>
+    <package name='handbrake-gtk'/>
+    <package name='PlayOnLinux'/>
+    <package name='steam'/>
+    <package name='xorg-x11-driver-video-nouveau'/>
+    <package name='touchegg'/>
+    <package name='NetworkManager'/>
+    <package name='pipelight-debuginfo'/>
+    <package name='pipelight-debugsource'/>
+    <package name='libdvdcss2'/>
+    <package name='gstreamer-0_10-plugins-ffmpeg'/>
+    <package name='gstreamer-0_10-plugins-ugly-orig-addon'/>
+    <package name='gstreamer-0_10-plugins-ugly'/>
+    <package name='gstreamer-0_10-plugins-bad'/>
+    <package name='lame'/>
+    <package name='ffmpeg'/>
+    <package name='k3b-codecs'/>
+    <package name='libxine2-codecs'/>
+    <package name='file-roller'/>
+    <package name='file-roller-lang'/>
+    <package name='libgnomesu-lang'/>
+    <package name='yast2-sudo'/>
+    <package name='sudo'/>
+    <package name='gnome-tweak-tool-lang'/>
+    <package name='gnome-tweak-tool'/>
+    <package name='gsettings-desktop-schemas'/>
+    <package name='gsettings-desktop-schemas-lang'/>
+    <package name='gsettings-desktop-schemas-devel'/>
+    <package name='gsettings-backend-dconf'/>
+    <package name='eog-plugins-lang'/>
+    <package name='eog-plugins'/>
+    <package name='eog-lang'/>
+    <package name='eog'/>
+    <package name='gnome-calculator-lang'/>
+    <package name='gnome-calculator'/>
+    <package name='totem-lang'/>
+    <package name='totem-browser-plugin-gmp'/>
+    <package name='totem-plugins'/>
+    <package name='totem-browser-plugin'/>
+    <package name='totem'/>
+    <package name='nautilus-terminal'/>
+    <package name='nautilus-share-lang'/>
+    <package name='nautilus-open-terminal-lang'/>
+    <package name='nautilus-lang'/>
+    <package name='nautilus-file-roller'/>
+    <package name='nautilus-sendto'/>
+    <package name='nautilus-share'/>
+    <package name='brasero-nautilus'/>
+    <package name='nautilus-totem'/>
+    <package name='nautilus-open-terminal'/>
+    <package name='gedit-plugins-lang'/>
+    <package name='gedit-plugins'/>
+    <package name='gedit-lang'/>
+    <package name='gedit'/>
+    <package name='yast2-scanner'/>
+    <package name='simple-scan-lang'/>
+    <package name='simple-scan'/>
+    <package name='cheese-lang'/>
+    <package name='cheese'/>
+    <package name='tomboy-lang'/>
+    <package name='plymouth-theme-spinner'/>
+    <package name='plymouth-theme-fade-in'/>
+    <package name='nano-lang'/>
+    <package name='gnome-shell-search-provider-gnote'/>
+    <package name='gnome-shell-search-provider-bijiben'/>
+    <package name='gnome-shell-classic'/>
+    <package name='gnome-shell-search-provider-nautilus'/>
+    <package name='gnome-shell-search-provider-contacts'/>
+    <package name='gnome-shell-search-provider-documents'/>
+    <package name='gnome-shell-browser-plugin'/>
+    <package name='gnome-shell-lang'/>
+    <package name='gnome-terminal-lang'/>
+    <package name='gnome-software-appdata'/>
+    <package name='gnome-software-lang'/>
+    <package name='gnome-music-lang'/>
+    <package name='gnome-photos-lang'/>
+    <package name='gnome-documents-lang'/>
+    <package name='gimp-lang'/>
+    <package name='libreoffice-languagetool'/>
+    <package name='gnome-control-center-lang'/>
+    <package name='gnome-control-center'/>
+    <package name='gimp-help'/>
+    <package name='gimp'/>
+    <package name='gnome-documents'/>
+    <package name='libreoffice-gnome'/>
+    <package name='libreoffice-mailmerge'/>
+    <package name='libreoffice-base-extensions'/>
+    <package name='libreoffice-converter'/>
+    <package name='libreoffice-draw-extensions'/>
+    <package name='libreoffice-impress-extensions'/>
+    <package name='libreoffice-calc-extensions'/>
+    <package name='libreoffice-writer-extensions'/>
+    <package name='libreoffice-base'/>
+    <package name='libreoffice-math'/>
+    <package name='libreoffice-draw'/>
+    <package name='libreoffice-impress'/>
+    <package name='libreoffice-calc'/>
+    <package name='libreoffice'/>
+    <package name='libreoffice-writer'/>
+    <package name='gnome-photos'/>
+    <package name='gnome-music'/>
+    <package name='gnome-software'/>
+    <package name='nano'/>
+    <package name='MozillaFirefox'/>
+    <package name='google-chrome-beta'/>
+    <package name='gnome-shell-search-provider-boxes'/>
+    <package name='gnome-boxes-lang'/>
+    <package name='gnome-boxes'/>
+    <package name='gnome-terminal'/>
+    <package name='gvfs-backends'/>
+    <package name='libgnomesu'/>
+    <package name='tomboy'/>
+    <package name='yast2-control-center-gnome'/>
+    <package name='SuSEfirewall2'/>
+    <package name='grub2'/>
+    <package name='glibc-locale'/>
+    <package name='iputils'/>
+    <package name='kernel-default'/>
+    <package name='less'/>
+    <package name='plymouth'/>
+    <package name='syslog-ng'/>
+    <package name='vim'/>
+    <package name='yast2'/>
+    <package name='yast2-firstboot'/>
+    <package name='zypper'/>
+    <package name='dbus-1-x11'/>
+    <package name='icewm'/>
+    <package name='x11-tools'/>
+    <package name='xf86-video-modesetting'/>
+    <package name='xorg-x11'/>
+    <package name='xorg-x11-driver-input'/>
+    <package name='xorg-x11-driver-video'/>
+    <package name='xorg-x11-fonts'/>
+    <package name='xorg-x11-server'/>
+    <package name='yast2-x11'/>
+    <package name='btrfsprogs'/>
+
+    <opensusePattern name='yast2_install_wf'/>
+    <opensusePattern name='yast2_basis'/>
+    <opensusePattern name='gnome'/>
+    <opensusePattern name='gnome_basis'/>
+    <opensusePattern name='base'/>
+    <opensusePattern name='x11'/>
+    <archive name='plymouth.tar' bootinclude='true'/>
+    <archive name='gdm.tar'/>
+  </packages>
+  <packages type='bootstrap'>
+    <package name='filesystem'/>
+    <package name='glibc-locale'/>
+    <package name='module-init-tools'/>
+  </packages>
+
+
+</image>
