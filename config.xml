@@ -1,87 +1,60 @@
-<image schemaversion="5.2" name="apricity"
-  displayname="Apricity OS" 
-  kiwirevision="5.06.7" 
-  id="0000000001">
-
- <description type="iso">
-   <author>Alex Gajewski</author>
-   <contact>apagajewski@gmail.com</contact>
-   <specification>Apricity OS</specification>
- </description>
-
- <preferences>
-   <version>0.0.1</version>
-   <timezone>America/Chicago</timezone>
-   <hwclock>localtime</hwclock>
-   <locale>en_US</locale>
- <keytable>colemak</keytable>
-   <packagemanager>smart</packagemanager>
-   <type image="iso" boot="isoboot/suse-tumbleweed" fsnocheck='true' bootloader='grub2' flags='clic' hybrid='true' kernelcmdline='quiet'>
-   </type> 
- </preferences>
-
- <users group="wheel,storage,power,scanner,camera," id="2"> 
-   <user home="/home/liveuser" id="2" name="liveuser" pwd=""
-         pwdformat="plain" realname="Live User" shell="/bin/bash>
- </users>
-
-
- <repository type="yast2" alias="Tumbleweed" imageinclude="true"
-               <source path="http://download.opensuse.org/repositories/openSUSE: /Tumbleweed/standard/"/>
- 
-
- <repository type="yast2" alias="openSUSE Current OSS" imageinclude="true"
-               <source path="http://download.opensuse.org/distribution/openSUSE-  current/repo/oss/"/>
-
- <repository type="yast2" alias="openSUSE Current non-OSS" imageinclude="true"
-              <source path="http://download.opensuse.org/distribution/openSUSE-current/repo/oss/suse/"/>
- </repository>
-
- <repository type="yast2" alias="openSUSE Current OSS updates" imageinclude="true"
-              <source path="http://download.opensuse.org/update/openSUSE-current/"/>
- </repository>
-
- <repository type="yast2" alias="openSUSE Current non-OSS updates" imageinclude="true"
-              <source path="http://download.opensuse.org/update/openSUSE-non-oss-current/"/>
- </repository>\
-
- <repository type="rpm-md" alias="dvd" imageinclude="true"
-              <source path="http://www.opensuse-guide.org/repo/13.1/"/>
- </repository>
-
- <repository type="rpm-md" alias="packman" imageinclude="true"
-              <source path="http://packman.inode.at/suse/openSUSE_Tumbleweed/"/>
- </repository>
-
- <repository type="rpm-md" alias="Google-talk" imageinclude="true"
-              <source path="http://dl.google.com/linux/talkplugin/rpm/stable/x86_64/"/>
- </repository>
-
- <repository type="rpm-md" alias="touchegg" imageinclude="true"
-              <source path="http://download.opensuse.org/repositories/home:/cabelo:/touchegg/openSUSE_13.1/"/>
- </repository>
-
-<repository type="rpm-md" alias="playonlinux" imageinclude="true"
-              <source path="http://download.opensuse.org/repositories/home:/ecsos/openSUSE_Tumbleweed/"/>
- </repository>
-
-<repository type="rpm-md" alias="wireless-firmware" imageinclude="true"
-              <source path="http://download.opensuse.org/repositories/home:/NicoK:/drivers/openSUSE_Tumbleweed/"/>
- </repository>
-
-<repository type="rpm-md" alias="petracw" imageinclude="true"
-              <source path="http://download.opensuse.org/repositories/home:/petracvv/openSUSE_Tumbleweed/"/>
- </repository>
-
-<repository type="rpm-md" alias="pipelight" imageinclude="true"
-              <source path="http://download.opensuse.org/repositories/home:/rbos:/pipelight/openSUSE_Tumbleweed/home:rbos:pipelight.repo"/>
- </repository>
-
-<packages type="iso" patternType="plusRecommended"
-<package name='kiwi-desc-isoboot-requires'/>
+<?xml version='1.0' encoding='UTF-8'?>
+<image name='Apricity_OS' displayname='Apricity_OS' schemaversion='5.2'>
+  <description type='system'>
+    <author>Alex Gajewski</author>
+    <contact>apagajewski@gmail.com</contact>
+    <specification>Apricity OS</specification>
+  </description>
+  <preferences>
+    <type checkprebuilt='true' boot='isoboot/suse-13.1' fsnocheck='true' bootloader='grub2' flags='clic' hybrid='true' kernelcmdline='quiet' image='iso'>
+      <split>
+        <temporary>
+          <file name='/var'/>
+          <file name='/var/*'/>
+          <file name='/etc'/>
+          <file name='/etc/*'/>
+          <file name='/tmp'/>
+          <file name='/tmp/*'/>
+          <file name='/home'/>
+          <file name='/home/*'/>
+        </temporary>
+      </split>
+    </type>
+    <version>0.0.1</version>
+    <packagemanager>smart</packagemanager>
+    <rpm-check-signatures>false</rpm-check-signatures>
+    <rpm-force>false</rpm-force>
+    <timezone>America/Chicago</timezone>
+    <hwclock>localtime</hwclock>
+    <locale>en_US</locale>
+    <keytable>colemak</keytable>
+  </preferences>
+  <users group='root'>
+    <user name='root' pwd='$1$tE04vTNO$Tv8X8WvjECCYI/RIId6n4/' home='/root' shell='/bin/bash'/>
+  </users>
+  <users group='users'>
+    <user name='tux' pwd='$1$pz5JBWXF$S7.G/7W2rKa52vdTNtEgN0' home='/home/tux' shell='/bin/bash'/>
+  </users>
+  <packages type='image' patternType='plusRecommended'>
+    <opensusePattern name='yast2_install_wf'/>
+    <opensusePattern name='yast2_basis'/>
+    <opensusePattern name='gnome'/>
+    <opensusePattern name='gnome_basis'/>
+    <opensusePattern name='base'/>
+    <opensusePattern name='x11'/>
+    <package name='kiwi-desc-isoboot-requires'/>
     <package name='kiwi-desc-isoboot'/>
     <package name='kiwi-tools'/>
+    <package name='GParted'/>
+    <package name='xerces-j2'/>
     <package name='kiwi'/>
+    <package name='xfsprogs'/>
+    <package name='xfs'/>
+    <package name='reiserfs'/>
+    <package name='saxon6'/>
+    <package name='saxon8'/>
+    <package name='saxon9'/>
+    <package name='zfs'/>
     <package name='git'/>
     <package name='git-core'/>
     <package name='netflix-desktop'/>
@@ -315,21 +288,73 @@
     <package name='xorg-x11-server'/>
     <package name='yast2-x11'/>
     <package name='btrfsprogs'/>
-
-    <opensusePattern name='yast2_install_wf'/>
-    <opensusePattern name='yast2_basis'/>
-    <opensusePattern name='gnome'/>
-    <opensusePattern name='gnome_basis'/>
-    <opensusePattern name='base'/>
-    <opensusePattern name='x11'/>
     <archive name='plymouth.tar' bootinclude='true'/>
     <archive name='gdm.tar'/>
   </packages>
+  
   <packages type='bootstrap'>
     <package name='filesystem'/>
     <package name='glibc-locale'/>
     <package name='module-init-tools'/>
   </packages>
+  
+  <repository type="yast2" alias="Tumbleweed" imageinclude="true">
+  <source path="http://download.opensuse.org/repositories/openSUSE: /Tumbleweed/standard/"/>
+ </repository>
 
+ <repository type="yast2" alias="openSUSE Current OSS" imageinclude="true">
+  <source path="http://download.opensuse.org/distribution/openSUSE-  current/repo/oss/"/>
+ </repository>
 
+ <repository type="yast2" alias="openSUSE Current non-OSS" imageinclude="true">
+  <source path="http://download.opensuse.org/distribution/openSUSE-current/repo/oss/suse/"/>
+ </repository>
+
+ <repository type="yast2" alias="openSUSE Current OSS updates" imageinclude="true"> 
+  <source path="http://download.opensuse.org/update/openSUSE-current/"/>
+ </repository>
+
+ <repository type="yast2" alias="openSUSE Current non-OSS updates" imageinclude="true"> 
+  <source path="http://download.opensuse.org/update/openSUSE-non-oss-current/"/>
+ </repository>
+ 
+ <repository type="yast2" alias="Virtualization Appliances" imageinclude="true"> 
+  <source path="http://download.opensuse.org/repositories/Virtualization:/Appliances/Factory/"/>
+ </repository>
+
+ <repository type="rpm-md" alias="dvd" imageinclude="true"> 
+  <source path="http://www.opensuse-guide.org/repo/13.1/"/>
+ </repository>
+
+ <repository type="rpm-md" alias="packman" imageinclude="true"> 
+  <source path="http://packman.inode.at/suse/openSUSE_Tumbleweed/"/>
+ </repository>
+ 
+ <repository type="rpm-md" alias="filesystems" imageinclude="true"> 
+  <source path="http://download.opensuse.org/repositories/filesystems/openSUSE_Tumbleweed/"/>
+ </repository>
+ 
+ <repository type="rpm-md" alias="Google-talk" imageinclude="true"> 
+  <source path="http://dl.google.com/linux/talkplugin/rpm/stable/x86_64/"/>
+ </repository>
+
+ <repository type="rpm-md" alias="touchegg" imageinclude="true"> 
+  <source path="http://download.opensuse.org/repositories/home:/cabelo:/touchegg/openSUSE_13.1/"/>
+ </repository>
+
+ <repository type="rpm-md" alias="playonlinux" imageinclude="true"> 
+  <source path="http://download.opensuse.org/repositories/home:/ecsos/openSUSE_Tumbleweed/"/>
+ </repository>
+
+ <repository type="rpm-md" alias="wireless-firmware" imageinclude="true"> 
+  <source path="http://download.opensuse.org/repositories/home:/NicoK:/drivers/openSUSE_Tumbleweed/"/>
+ </repository>
+
+ <repository type="rpm-md" alias="petracw" imageinclude="true"> 
+  <source path="http://download.opensuse.org/repositories/home:/petracvv/openSUSE_Tumbleweed/"/>
+ </repository>
+
+ <repository type="rpm-md" alias="pipelight" imageinclude="true"> 
+  <source path="http://download.opensuse.org/repositories/home:/rbos:/pipelight/openSUSE_Tumbleweed/home:rbos:pipelight.repo"/>
+ </repository>
 </image>
