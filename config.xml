@@ -21,7 +21,7 @@
       </split>
     </type>
     <version>0.0.1</version>
-    <packagemanager>smart</packagemanager>
+    <packagemanager>zypper</packagemanager>
     <rpm-check-signatures>false</rpm-check-signatures>
     <rpm-force>false</rpm-force>
     <timezone>America/Chicago</timezone>
@@ -36,13 +36,12 @@
     <user name='tux' pwd='$1$pz5JBWXF$S7.G/7W2rKa52vdTNtEgN0' home='/home/tux' shell='/bin/bash'/>
   </users>
   <packages type='image' patternType='plusRecommended'>
-    <opensusePattern name='yast2_install_wf'/>
-    <opensusePattern name='yast2_basis'/>
-    <opensusePattern name='gnome'/>
-    <opensusePattern name='gnome_basis'/>
-    <opensusePattern name='base'/>
-    <opensusePattern name='x11'/>
-    <package name='kiwi-desc-isoboot-requires'/>
+    <namedCollection name='yast2_install_wf'/>
+    <namedCollection name='yast2_basis'/>
+    <namedCollection name='gnome'/>
+    <namedCollection name='gnome_basis'/>
+    <namedCollection name='base'/>
+    <namedCollection name='x11'/>
     <package name='kiwi-desc-isoboot'/>
     <package name='kiwi-tools'/>
     <package name='GParted'/>
@@ -119,7 +118,6 @@
     <package name='yast2-firewall'/>
     <package name='yast2-sound'/>
     <package name='imagewriter'/>
-    <package name='ralink-firmware'/>
     <package name='hostapd'/>
     <package name='wpa_supplicant-gui'/>
     <package name='wpa_supplicant'/>
@@ -256,7 +254,6 @@
     <package name='gnome-software'/>
     <package name='nano'/>
     <package name='MozillaFirefox'/>
-    <package name='google-chrome-beta'/>
     <package name='gnome-shell-search-provider-boxes'/>
     <package name='gnome-boxes-lang'/>
     <package name='gnome-boxes'/>
@@ -279,6 +276,7 @@
     <package name='zypper'/>
     <package name='dbus-1-x11'/>
     <package name='icewm'/>
+    <package name='kernel-firmware'/>
     <package name='x11-tools'/>
     <package name='xf86-video-modesetting'/>
     <package name='xorg-x11'/>
@@ -298,63 +296,57 @@
     <package name='module-init-tools'/>
   </packages>
   
-  <repository type="yast2" alias="Tumbleweed" imageinclude="true">
-  <source path="http://download.opensuse.org/repositories/openSUSE: /Tumbleweed/standard/"/>
- </repository>
+  <repository type="rpm-md" alias="Tumbleweed">
+   <source path="http://download.opensuse.org/repositories/openSUSE:/Tumbleweed/standard/"/>
+  </repository>
 
- <repository type="yast2" alias="openSUSE Current OSS" imageinclude="true">
-  <source path="http://download.opensuse.org/distribution/openSUSE-  current/repo/oss/"/>
- </repository>
+  <repository type="yast2" alias="openSUSE_Current_OSS">
+   <source path="obs://openSUSE-current/repo/oss"/>
+  </repository>
 
- <repository type="yast2" alias="openSUSE Current non-OSS" imageinclude="true">
-  <source path="http://download.opensuse.org/distribution/openSUSE-current/repo/oss/suse/"/>
- </repository>
+  <repository type="yast2" alias="openSUSE_Current_non-OSS">
+   <source path="obs://openSUSE-current/repo/non-oss"/>
+  </repository>
 
- <repository type="yast2" alias="openSUSE Current OSS updates" imageinclude="true"> 
-  <source path="http://download.opensuse.org/update/openSUSE-current/"/>
- </repository>
 
- <repository type="yast2" alias="openSUSE Current non-OSS updates" imageinclude="true"> 
-  <source path="http://download.opensuse.org/update/openSUSE-non-oss-current/"/>
- </repository>
+
+  <repository type="rpm-md" alias="dvd"> 
+   <source path="http://www.opensuse-guide.org/repo/13.1/"/>
+  </repository>
+
+  <repository type="rpm-md" alias="packman"> 
+   <source path="http://packman.inode.at/suse/openSUSE_Tumbleweed/"/>
+  </repository>
  
- <repository type="yast2" alias="Virtualization Appliances" imageinclude="true"> 
-  <source path="http://download.opensuse.org/repositories/Virtualization:/Appliances/Factory/"/>
- </repository>
+  <repository type="rpm-md" alias="filesystems"> 
+   <source path="http://download.opensuse.org/repositories/filesystems/openSUSE_Tumbleweed/"/>
+  </repository>
 
- <repository type="rpm-md" alias="dvd" imageinclude="true"> 
-  <source path="http://www.opensuse-guide.org/repo/13.1/"/>
- </repository>
-
- <repository type="rpm-md" alias="packman" imageinclude="true"> 
-  <source path="http://packman.inode.at/suse/openSUSE_Tumbleweed/"/>
- </repository>
+  <repository type="rpm-md" alias="packagemanager"> 
+   <source path="http://download.opensuse.org/repositories/system:/packagemanager/openSUSE_Factory/"/>
+  </repository>
  
- <repository type="rpm-md" alias="filesystems" imageinclude="true"> 
-  <source path="http://download.opensuse.org/repositories/filesystems/openSUSE_Tumbleweed/"/>
- </repository>
- 
- <repository type="rpm-md" alias="Google-talk" imageinclude="true"> 
-  <source path="http://dl.google.com/linux/talkplugin/rpm/stable/x86_64/"/>
- </repository>
+  <repository type="rpm-md" alias="Google-talk"> 
+   <source path="http://dl.google.com/linux/talkplugin/rpm/stable/x86_64/"/>
+  </repository>
 
- <repository type="rpm-md" alias="touchegg" imageinclude="true"> 
-  <source path="http://download.opensuse.org/repositories/home:/cabelo:/touchegg/openSUSE_13.1/"/>
- </repository>
+  <repository type="rpm-md" alias="touchegg"> 
+   <source path="http://download.opensuse.org/repositories/home:/cabelo:/touchegg/openSUSE_13.1/"/>
+  </repository>
 
- <repository type="rpm-md" alias="playonlinux" imageinclude="true"> 
-  <source path="http://download.opensuse.org/repositories/home:/ecsos/openSUSE_Tumbleweed/"/>
- </repository>
+  <repository type="rpm-md" alias="playonlinux"> 
+   <source path="http://download.opensuse.org/repositories/home:/ecsos/openSUSE_Tumbleweed/"/>
+  </repository>
 
- <repository type="rpm-md" alias="wireless-firmware" imageinclude="true"> 
-  <source path="http://download.opensuse.org/repositories/home:/NicoK:/drivers/openSUSE_Tumbleweed/"/>
- </repository>
+  <repository type="rpm-md" alias="wireless-firmware"> 
+   <source path="http://download.opensuse.org/repositories/home:/NicoK:/drivers/openSUSE_Tumbleweed/"/>
+  </repository>
 
- <repository type="rpm-md" alias="petracw" imageinclude="true"> 
-  <source path="http://download.opensuse.org/repositories/home:/petracvv/openSUSE_Tumbleweed/"/>
- </repository>
+  <repository type="rpm-md" alias="petracw"> 
+   <source path="http://download.opensuse.org/repositories/home:/petracvv/openSUSE_Tumbleweed/"/>
+  </repository>
 
- <repository type="rpm-md" alias="pipelight" imageinclude="true"> 
-  <source path="http://download.opensuse.org/repositories/home:/rbos:/pipelight/openSUSE_Tumbleweed/home:rbos:pipelight.repo"/>
- </repository>
+  <repository type="rpm-md" alias="pipelight"> 
+   <source path="http://download.opensuse.org/repositories/home:/rbos:/pipelight/openSUSE_Tumbleweed/"/>
+  </repository>
 </image>
