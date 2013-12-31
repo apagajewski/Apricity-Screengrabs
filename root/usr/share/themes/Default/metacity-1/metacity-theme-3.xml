@@ -2,45 +2,45 @@
 <metacity_theme>
 <info>
 	<name>Numix</name>
-	<author>Satyajit Sahoo, modded by Rho: rhoconlinux.wordpress.com </author>
+	<author>Satyajit Sahoo</author>
 	<copyright>GPL-3.0+</copyright>
 	<date>8 March 2013</date>
-	<description>Blumix Mutter Theme</description>
+	<description>Numix Mutter Theme</description>
 </info>
 
 <!-- ::: CONSTANTS ::: -->
-<constant name="C_titlebar" value="gtk:custom(wm_bg,#DEDEDE)" />
-<constant name="C_border_focused" value="gtk:custom(wm_border_focused,#DEDEDE)" />
-<constant name="C_border_unfocused" value="gtk:custom(wm_border_unfocused,#888888)" />
+<constant name="C_titlebar" value="gtk:custom(wm_bg,#2d2d2d)" />
+<constant name="C_border_focused" value="gtk:custom(wm_border_focused,#484848)" />
+<constant name="C_border_unfocused" value="gtk:custom(wm_border_unfocused,#393939)" />
 <constant name="C_title_focused" value="gtk:custom(wm_title_focused,#dcdcdc)" />
 <constant name="C_title_unfocused" value="gtk:custom(wm_title_unfocused,#888888)" />
 
 <!-- ::: GEOMETRY ::: -->
-<frame_geometry name="normal" title_scale="medium" rounded_top_left="5" rounded_top_right="5" rounded_bottom_right="5" rounded_bottom_left="5">
+<frame_geometry name="normal" title_scale="medium" rounded_top_left="1" rounded_top_right="1">
 	<distance name="left_width" value="1" />
 	<distance name="right_width" value="1" />
 	<distance name="bottom_height" value="1" />
 	<distance name="left_titlebar_edge" value="4" />
 	<distance name="right_titlebar_edge" value="4" />
-	<distance name="title_vertical_pad" value="2" />
+	<distance name="title_vertical_pad" value="0" />
 	<aspect_ratio name="button" value="1.0" />
 	<border name="title_border" left="8" right="8" top="4" bottom="4" />
 	<border name="button_border" left="0" right="0" top="0" bottom="0" />
 </frame_geometry>
 
-<frame_geometry name="normal_unfocused" title_scale="medium" rounded_top_left="5" rounded_top_right="5" parent="normal" />
+<frame_geometry name="normal_unfocused" title_scale="medium" rounded_top_left="1" rounded_top_right="1" parent="normal" />
 
-<frame_geometry name="max" title_scale="medium" parent="normal" rounded_top_left="true" rounded_top_right="true"  rounded_bottom_right="true" rounded_bottom_left="true">
+<frame_geometry name="max" title_scale="medium" parent="normal" rounded_top_left="false" rounded_top_right="false">
 	<distance name="left_width" value="0" />
 	<distance name="right_width" value="0" />
-	<distance name="bottom_height" value="2" />
+	<distance name="bottom_height" value="0" />
 </frame_geometry>
 
-<frame_geometry name="tiled_left" title_scale="medium" rounded_top_left="true" rounded_top_right="true" parent="max">
+<frame_geometry name="tiled_left" title_scale="medium" rounded_top_left="false" rounded_top_right="false" parent="max">
 	<distance name="right_width" value="1" />
 </frame_geometry>
 
-<frame_geometry name="tiled_right" title_scale="medium" rounded_top_left="true" rounded_top_right="true" parent="max">
+<frame_geometry name="tiled_right" title_scale="medium" rounded_top_left="false" rounded_top_right="false" parent="max">
 	<distance name="left_width" value="1" />
 </frame_geometry>
 
@@ -57,7 +57,7 @@
 
 <frame_geometry name="nobuttons" hide_buttons="true" parent="normal" />
 
-<frame_geometry name="border" has_title="false" rounded_top_left="true" rounded_top_right="true" parent="normal" >
+<frame_geometry name="border" has_title="false" rounded_top_left="false" rounded_top_right="false" parent="normal" >
 	<distance name="left_width" value="1" />
 	<distance name="right_width" value="1" />
 	<distance name="bottom_height" value="1" />
@@ -66,7 +66,7 @@
 	<border name="button_border" left="0" right="0" top="0" bottom="0"/>
 </frame_geometry>
 
-<frame_geometry name="borderless" has_title="false" rounded_top_left="true" rounded_top_right="true" parent="normal">
+<frame_geometry name="borderless" has_title="false" rounded_top_left="false" rounded_top_right="false" parent="normal">
 	<distance name="left_width" value="0" />
 	<distance name="right_width" value="0" />
 	<distance name="bottom_height" value="0" />
@@ -86,12 +86,12 @@
 	<title version="< 3.1"
                x="(0 `max` ((width - title_width) / 2)) + 2"
                y="(0 `max` ((height - title_height) / 2))"
-               color="#676767" />
+               color="C_title_focused" />
 	<title version=">= 3.1"
                x="(0 `max` ((frame_x_center - title_width/2) `min` (width - title_width))) + 2"
                y="(0 `max` ((height - title_height) / 2))"
                ellipsize_width="width"
-               color="#676767" />
+               color="C_title_focused" />
 </draw_ops>
 
 <draw_ops name="title_unfocused">
@@ -108,7 +108,7 @@
 
 <!-- ::: WINDOW DECORATIONS ::: -->
 <draw_ops name="entire_background_focused">
-	<rectangle color="#DEDEDE" x="0" y="0" width="width" height="height" filled="true" />
+	<rectangle color="C_titlebar" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="entire_background_unfocused">
@@ -116,7 +116,7 @@
 </draw_ops>
 
 <draw_ops name="titlebar_fill_focused">
-	<rectangle color="#DEDEDE" x="0" y="0" width="width" height="height" filled="true" />
+	<rectangle color="C_titlebar" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="titlebar_fill_attached_focused">
@@ -124,7 +124,7 @@
 </draw_ops>
 
 <draw_ops name="titlebar_fill_unfocused">
-	<rectangle color="#DEDEDE" x="0" y="0" width="width" height="height" filled="true" />
+	<rectangle color="C_titlebar" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="titlebar_focused">
@@ -140,42 +140,42 @@
 </draw_ops>
 
 <draw_ops name="border_focused">
-	<rectangle color="#DEDEDE" x="0" y="0" width="width-1" height="height-1" filled="false" />
+	<rectangle color="C_border_focused" x="0" y="0" width="width-1" height="height-1" filled="false" />
 </draw_ops>
 
 <draw_ops name="border_unfocused">
-	<rectangle color="#A7A7A7" x="0" y="0" width="width-1" height="height-1" filled="false" />
+	<rectangle color="C_border_unfocused" x="0" y="0" width="width-1" height="height-1" filled="false" />
 </draw_ops>
 
 <draw_ops name="rounded_border_focused">
-	<line color="#ECECEC" x1="2" y1="0" x2="width-3" y2="0" />
-	<line color="#ECECEC" x1="0" y1="height-1" x2="width-1" y2="height-1" />
-	<line color="#ECECEC" x1="0" y1="2" x2="0" y2="height-2" />
-	<line color="#ECECEC" x1="width-1" y1="2" x2="width-1" y2="height-2" />
-	<arc color="#ECECEC" x="0" y="0" width="3" height="3"  start_angle="270" extent_angle="190" />
-	<arc color="#ECECEC" x="width-3" y="0" width="2" height="3"  start_angle="0" extent_angle="90" />
+	<line color="C_border_focused" x1="2" y1="0" x2="width-3" y2="0" />
+	<line color="C_border_focused" x1="0" y1="height-1" x2="width-1" y2="height-1" />
+	<line color="C_border_focused" x1="0" y1="2" x2="0" y2="height-2" />
+	<line color="C_border_focused" x1="width-1" y1="2" x2="width-1" y2="height-2" />
+	<arc color="C_border_focused" x="0" y="0" width="3" height="3"  start_angle="270" extent_angle="90" />
+	<arc color="C_border_focused" x="width-3" y="0" width="2" height="3"  start_angle="0" extent_angle="90" />
 	<!-- double arcs for darker borders -->
-	<arc color="#ECECEC" x="0" y="0" width="3" height="3"  start_angle="270" extent_angle="90" />
-	<arc color="#ECECEC" x="width-3" y="0" width="2" height="3"  start_angle="0" extent_angle="90" />
+	<arc color="C_border_focused" x="0" y="0" width="3" height="3"  start_angle="270" extent_angle="90" />
+	<arc color="C_border_focused" x="width-3" y="0" width="2" height="3"  start_angle="0" extent_angle="90" />
 </draw_ops>
 
 <draw_ops name="rounded_border_unfocused">
-	<line color="#CECECE" x1="5" y1="0" x2="width-3" y2="0" />
-	<line color="#CECECE" x1="0" y1="height-1" x2="width-1" y2="height-1" />
-	<line color="#CECECE" x1="0" y1="2" x2="0" y2="height-2" />
-	<line color="#CECECE" x1="width-1" y1="2" x2="width-1" y2="height-2" />
-	<arc color="#CECECE" x="0" y="0" width="3" height="3"  start_angle="270" extent_angle="90" />
-	<arc color="#CECECE" x="width-3" y="0" width="2" height="3"  start_angle="0" extent_angle="90" />
+	<line color="C_border_unfocused" x1="2" y1="0" x2="width-3" y2="0" />
+	<line color="C_border_unfocused" x1="0" y1="height-1" x2="width-1" y2="height-1" />
+	<line color="C_border_unfocused" x1="0" y1="2" x2="0" y2="height-2" />
+	<line color="C_border_unfocused" x1="width-1" y1="2" x2="width-1" y2="height-2" />
+	<arc color="C_border_unfocused" x="0" y="0" width="3" height="3"  start_angle="270" extent_angle="90" />
+	<arc color="C_border_unfocused" x="width-3" y="0" width="2" height="3"  start_angle="0" extent_angle="90" />
 	<!-- double arcs for darker borders -->
-	<arc color="#CECECE" x="0" y="0" width="3" height="3"  start_angle="270" extent_angle="90" />
-	<arc color="#CECECE" x="width-3" y="0" width="2" height="3"  start_angle="0" extent_angle="90" />
+	<arc color="C_border_unfocused" x="0" y="0" width="3" height="3"  start_angle="270" extent_angle="90" />
+	<arc color="C_border_unfocused" x="width-3" y="0" width="2" height="3"  start_angle="0" extent_angle="90" />
 </draw_ops>
 
 <draw_ops name="border_right_focused">
 	<line
 		x1="width-1" y1="0"
 		x2="width-1" y2="height"
-		color="#A7A7A7" />
+		color="C_border_focused" />
 </draw_ops>
 
 <draw_ops name="border_right_unfocused">
@@ -189,7 +189,7 @@
 	<line
 		x1="0" y1="0" 
 		x2="0" y2="height" 
-		color="#A7A7A7" />
+		color="C_border_focused" />
 </draw_ops>
 
 <draw_ops name="border_left_unfocused">

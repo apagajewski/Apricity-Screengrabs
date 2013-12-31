@@ -9,9 +9,9 @@
 </info>
 
 <!-- ::: CONSTANTS ::: -->
-<constant name="C_titlebar" value="#DEDEDE" />
-<constant name="C_border_focused" value="#DEDEDE" />
-<constant name="C_border_unfocused" value="#DEDEDE" />
+<constant name="C_titlebar" value="#2d2d2d" />
+<constant name="C_border_focused" value="#484848" />
+<constant name="C_border_unfocused" value="#393939" />
 <constant name="C_title_focused" value="#dcdcdc" />
 <constant name="C_title_unfocused" value="#888888" />
 

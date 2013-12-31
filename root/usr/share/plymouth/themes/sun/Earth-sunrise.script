@@ -1,0 +1,147 @@
+win_width = Window.GetWidth();
+win_height = Window.GetHeight();
+ww_half = win_width / 2;
+wh_half = win_height / 2;
+
+offset = 0; //win_height / -4;
+
+Window.GetMaxWidth = fun (){
+  i = 0;
+  width = 0;
+  while (Window.GetWidth(i)){
+    width = Math.Max(width, Window.GetWidth(i));
+    i++;
+    }
+  return width;
+};
+
+Window.GetMaxHeight = fun (){
+  i = 0;
+  height = 0;
+  while (Window.GetHeight(i)){
+    height = Math.Max(height, Window.GetHeight(i));
+    i++;
+    }
+  return height;
+};
+
+
+background.original_image = ImageNew("background.png");
+background.image = background.original_image.Scale(Window.GetMaxWidth() , Window.GetMaxHeight());
+background.sprite = SpriteNew();
+background.sprite.SetImage(background.image);
+background.sprite.SetPosition(Window.GetX(), Window.GetY(), -10);
+
+sourceImage = Image ("space_glow.png");
+size_ratio = sourceImage.GetWidth() / win_width; // used later! todo: this is ugly
+new_height = sourceImage.GetHeight() / size_ratio;
+nh_half = new_height / 2;
+scaledImage = sourceImage.Scale (win_width, new_height);
+spaceGlow.sprite = Sprite (scaledImage);
+spaceGlow.sprite.SetY (wh_half - nh_half + offset);
+spaceGlow.sprite.SetOpacity (0);
+
+sourceImage = Image ("sun_glow.png");
+new_height = sourceImage.GetHeight() / size_ratio;
+scaledImage = sourceImage.Scale (new_height, new_height); // todo: what if its not square ?
+sunGlow.height = new_height;
+sunGlow.sprite = Sprite (scaledImage);
+sunGlow.sprite.SetX (ww_half - (new_height / 2));
+sunGlow.sprite.SetY (wh_half + offset);
+sunGlow.sprite.SetOpacity (0);
+
+sourceImage = Image ("planet_black.png");
+new_height = sourceImage.GetHeight() / size_ratio;
+scaledImage = sourceImage.Scale (win_width, new_height);
+planetBlack.sprite = Sprite (scaledImage);
+planetBlack.sprite.SetY (wh_half + offset);
+planetBlack.sprite.SetOpacity (1);
+
+sourceImage = Image ("planet_glow.png");
+new_height = sourceImage.GetHeight() / size_ratio;
+scaledImage = sourceImage.Scale (win_width, new_height);
+planetGlow.sprite = Sprite (scaledImage);
+planetGlow.sprite.SetY ((wh_half + offset) - 2);
+planetGlow.sprite.SetOpacity (0);
+
+distroLogo.image = Image ("distro_logo.png");
+distroLogo.width = distroLogo.image.GetWidth() / size_ratio;
+distroLogo.height = distroLogo.image.GetHeight() / size_ratio;
+distroLogo.image = distroLogo.image.Scale (distroLogo.width, distroLogo.height);
+distroLogo.x = ww_half - (distroLogo.width / 2);
+distroLogo.y = (wh_half / 2) - (distroLogo.height / 2);
+distroLogo.sprite = Sprite (distroLogo.image);
+distroLogo.sprite.SetX (distroLogo.x);
+distroLogo.sprite.SetY (distroLogo.y);
+distroLogo.sprite.SetOpacity (0);
+
+distroName.image = Image ("distro_name.png");
+distroName.width = distroName.image.GetWidth() / size_ratio;
+distroName.height = distroName.image.GetHeight() / size_ratio;
+distroName.image = distroName.image.Scale (distroName.width, distroName.height);
+distroName.x = ww_half - (distroName.width / 2);
+distroName.y = win_height - (distroName.height * 2);
+distroName.sprite = Sprite (distroName.image);
+distroName.sprite.SetX (distroName.x);
+distroName.sprite.SetY (distroName.y);
+distroName.sprite.SetOpacity (0);
+
+spaceGlow.start = 0;
+spaceGlow.end = 0.5;
+
+sunGlow.start = 0.2;
+sunGlow.end = 0.4;
+sunGlow.animStart = 0.2;
+sunGlow.animEnd = 0.8;
+sunGlow.startPos = (wh_half - (sunGlow.height / 4)) + offset;
+sunGlow.endPos = (wh_half / 2) - (sunGlow.height / 2);
+
+planetGlow.start = 0.2;
+planetGlow.end = 0.6;
+
+distroLogo.start = 0.2;
+distroLogo.end = 1;
+distroLogo.startb = 0.6;
+distroLogo.endb = 0.8;
+
+distroName.start = 0.8;
+distroName.end = 1;
+
+fun remap (val, imin, imax, omin, omax) {
+    return (((val - imin) / (imax - imin)) * (omax - omin)) + omin;
+}
+
+fun progress_callback (d, p) {
+
+    p = (p * 100.0) / 15.0;
+
+    if (p >= spaceGlow.start && p <= spaceGlow.end) {
+        a = remap (p, spaceGlow.start, spaceGlow.end, 0, 1);
+        spaceGlow.sprite.SetOpacity (a);
+    }
+    if (p >= sunGlow.start && p <= sunGlow.end) {
+        a = remap (p, sunGlow.start, sunGlow.end, 0, 1);
+        sunGlow.sprite.SetOpacity (a);
+    }
+    if (p >= sunGlow.animStart && p <= sunGlow.animEnd) {
+        a = remap (p, sunGlow.animStart, sunGlow.animEnd, 0, 1);
+        b = sunGlow.startPos - ((sunGlow.startPos - sunGlow.endPos) * a);
+        sunGlow.sprite.SetY (b);
+    }
+    if (p >= planetGlow.start && p <= planetGlow.end) {
+        a = remap (p, planetGlow.start, planetGlow.end, 0, 1);
+        planetGlow.sprite.SetOpacity (a);
+    }
+    if (p >= distroLogo.start && p <= distroLogo.end) {
+        a = remap (p, distroLogo.start, distroLogo.end, 0.5, 1);
+        b = Math.Pi * a;
+	c = remap (p, distroLogo.startb, distroLogo.endb, 0, 1);
+        distroLogo.sprite.SetImage (distroLogo.image.Rotate(b));
+	distroLogo.sprite.SetOpacity (c);
+    }
+    if (p >= distroName.start && p <= distroName.end) {
+        a = remap (p, distroName.start, distroName.end, 0, 1);
+        distroName.sprite.SetOpacity (a);
+    }
+}
+Plymouth.SetBootProgressFunction(progress_callback);
