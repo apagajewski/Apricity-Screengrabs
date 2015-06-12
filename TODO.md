@@ -4,5 +4,4 @@
 - [ ] gsettings set org.gnome.shell.overrides dynamic-workspaces false
 - [x] Vimix
 - [ ] Other Apps??
-- [ ] Migrate to OpenBuildService
-- [ ] Migrate to Koding
+- [x] Migrate to OpenBuildService
