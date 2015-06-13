@@ -1,7 +1,7 @@
 - [x] Playonlinux
-- [ ] Gnome Extensions (simple dock, shellshape, external media, applications dropdown, user themes, places, media player, topicons, caffeine, suspend button, top panel scrolling, always zoom workspaces, force quit)
-- [ ] Default Apps (Chrome, Firefox, Nautilus, Writer, Impress, Calc, Term, Music, Photos, Videos, Gedit)
-- [ ] gsettings set org.gnome.shell.overrides dynamic-workspaces false
+- [x] Gnome Extensions (simple dock, shellshape, external media, applications dropdown, user themes, places, media player, topicons, caffeine, suspend button, top panel scrolling, always zoom workspaces, force quit)
+- [x] Default Apps
+- [x] gsettings set org.gnome.shell.overrides dynamic-workspaces false
 - [x] Vimix
 - [ ] Other Apps??
 - [x] Migrate to OpenBuildService
