@@ -1,2 +1,2 @@
-# Apricity_OS
-Apricity OS, a new operating system
+# Apricity OS
+Just a collection of screengrabs for temporary use
