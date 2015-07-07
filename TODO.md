@@ -1,8 +1,0 @@
-- [x] Playonlinux
-- [x] Gnome Extensions (simple dock, shellshape, external media, applications dropdown, user themes, places, media player, topicons, caffeine, suspend button, top panel scrolling, always zoom workspaces, force quit)
-- [x] Default Apps
-- [x] gsettings set org.gnome.shell.overrides dynamic-workspaces false
-- [x] Vimix
-- [ ] Other Apps??
-- [x] Migrate to OpenBuildService
-- [x] Numix Scroll Fix
